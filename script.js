@@ -13,6 +13,7 @@ var outputResult = function (bin, contents) {
 
     binElement.textContent      = bin      || '';
     contentsElement.textContent = contents || '';
+
     document.getElementById('results').appendChild(binElement);
     document.getElementById('results').appendChild(contentsElement);
 };
