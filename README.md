@@ -151,3 +151,6 @@ Finally we need an HTML document to host all this:
   </body>
 </html>
 ```
+
+Browsers try hard to download data as quickly as possible,
+and our crawl runs in parallel across several threads without extra effort.
