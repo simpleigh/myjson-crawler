@@ -49,17 +49,3 @@ var iterateCharacters = function (alphabet, prefix, callback) {
         callback(prefix + alphabet[i]);
     }
 };
-
-var alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789';
-
-var run = function () {
-    'use strict';
-
-    iterateCharacters(alphabet, '', function (string) {
-        iterateCharacters(alphabet, string, function (string) {
-            iterateCharacters(alphabet, string, lookupBin);
-        });
-    });
-};
-
-run();

@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
   <body>
     <dl id="results"></dl>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789';
+
+    var run = function () {
+        'use strict';
+
+        iterateCharacters(alphabet, '', function (string) {
+            iterateCharacters(alphabet, string, function (string) {
+                iterateCharacters(alphabet, string, lookupBin);
+            });
+        });
+    };
+
+    run();
+    </script>
   </body>
 </html>
