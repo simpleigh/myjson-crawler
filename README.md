@@ -18,7 +18,7 @@ This means that it's easy to guess valid URLs, or even to enumerate all of them.
 [OWASP](https://www.owasp.org) describe this class of problem as an
 "insecure direct object reference",
 and list this at fourth place in their
-(2013 Top 10)[https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References]
+[2013 Top 10](https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References)
 list of security risks.
 It's not fair to criticise Myjson for this as they never advertised their
 system as secure,
@@ -27,6 +27,7 @@ but I think it is fair to take a look at what people are storing.
 ## Crawler implementation
 
 The most obvious way (to me, at least) to implement a crawler is as follows:
+
 1. Generate a list of URLs using scripting language _du jour_
 2. Use xargs and cURL to crawl.
 
@@ -134,4 +135,6 @@ var run = function () {
         });
     });
 };
+
+run();
 ```
