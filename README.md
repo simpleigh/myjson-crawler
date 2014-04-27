@@ -160,7 +160,7 @@ and our crawl runs in parallel across several threads without extra effort.
 ### Scope
 
 I restricted the crawl to include three-character names beginning with the
-letter 'c'.
+letters 'a' to 'd'.
 The above code will crawl all combinations of three-character bin names, and
 can also be easily extended to crawl four- and five-character names. 
 It's sensible to reduce the scope, however:
