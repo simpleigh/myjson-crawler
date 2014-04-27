@@ -138,3 +138,16 @@ var run = function () {
 
 run();
 ```
+
+Finally we need an HTML document to host all this:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <dl id="results"></dl>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
+```
