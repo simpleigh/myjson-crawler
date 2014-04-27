@@ -154,3 +154,51 @@ Finally we need an HTML document to host all this:
 
 Browsers try hard to download data as quickly as possible,
 and our crawl runs in parallel across several threads without extra effort.
+
+## Results
+
+### Scope
+
+I restricted the crawl to include three-character names beginning with the
+letter 'c'.
+The above code will crawl all combinations of three-character bin names, and
+can also be easily extended to crawl four- and five-character names. 
+It's sensible to reduce the scope, however:
+
+* Crawling lots of bins takes lots of time.
+* It isn't nice to load myjson.com heavily.
+* Thoughts of [Weev](http://en.wikipedia.org/wiki/Weev) make me nervous.
+
+### Brief Analysis
+
+The sample includes 1,637 rows.
+The top ten JSON strings are as follows:
+
+| String                                            | Count |
+| ------------------------------------------------- | ----- |
+| "{}"                                              |   226 |
+| "{"key":"value"}"                                 |    92 |
+| "{"foo":"bar"}"                                   |    42 |
+| "{"hello":"world"}"                               |    34 |
+| "{"key":"value","key2":"value2"}"                 |    30 |
+| "{"glossary":{"title":"example glossary",...      |    29 |
+| "{"key_updated":"value_updated"}"                 |    26 |
+| "[]"                                              |    23 |
+| "{"test":"test"}"                                 |    17 |
+| "{"key":"updated value","key2":"updated value2"}" |    16 |
+
+We can therefore estimate that around 14% of bins contain only the empty object.
+Many of the examples above seem likely to have been created to test the service,
+and 69% of the extracting strings contain only 50 characters or fewer.
+
+It will be interesting to run a similar scrape in the future and see if the
+distribution of data changes:
+how many people are using this service as intended?
+
+## Scope for Evil
+
+The API supports updating JSON data by sending an HTTP PUT request.
+It would only take a few minutes to overwrite _all_ data stored by Myjson.
+Myjson doesn't advertise a secure service,
+and they obviously aren't worried that data is disclosed.
+They ought to be worried that somebody might trash everything they have stored.
